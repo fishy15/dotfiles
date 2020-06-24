@@ -66,3 +66,6 @@ let g:airline_powerline_fonts=1
 let g:gitgutter_enabled=1
 
 let g:indentLine_char='┆'
+
+let g:ale_linters = {'cpp': ['clang', 'g++']}
+let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++17'
