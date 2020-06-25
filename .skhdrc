@@ -1,0 +1,22 @@
+# switch between open windows
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# swap open windows
+alt + shift - h : yabai -m window --swap west
+alt + shift - j : yabai -m window --swap south
+alt + shift - k : yabai -m window --swap north
+alt + shift - l : yabai -m window --swap east
+alt - r : yabai -m space --rotate 90
+alt + shift - r : yabai -m space --rotate 270
+
+# adjust window sizes
+alt - b : yabai -m space --balance
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# toggle mode
+alt - m : yabai -m config layout bsp
+alt - n : yabai -m config layout float
+
