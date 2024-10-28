@@ -1,14 +1,15 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+eval $(/usr/libexec/path_helper)
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/admin/.oh-my-zsh"
+export ZSH="/Users/aaryan/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="bullet-train"
+ZSH_THEME="bullet-train" # set by `omz`
 
 BULLETTRAIN_PROMPT_ORDER=(
     context
@@ -72,9 +73,12 @@ BULLETTRAIN_GIT_CLEAN=""
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
 plugins=(
+    extract
     git
     z
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -109,7 +113,12 @@ DEFAULT_USER=""
 
 # shows the weather by running `weather'
 weather() {
-    curl http://wttr.in/$1\?m1 
+    if [[ -z "$1" ]]; then
+        LOC="austin"
+    else
+        LOC="$1"
+    fi
+    curl "https://wttr.in/$LOC?m1"
 }
 
 # creates a new file that uses the competitive programming template
@@ -121,11 +130,6 @@ mkcp() {
     nvim $1
 }
 
-# qqqq and be happy
-qqqq() {
-    echo 'you are now happy :)'
-}
-
 # colorful ls
 alias ls='ls -G'
 
@@ -135,14 +139,101 @@ alias jc='javac'
 
 # add pip install stuff
 PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin
+PATH=$PATH:/Users/aaryan/Library/Python/3.10/bin
 
 # make C and C++ compiler gcc and g++
-alias gcc9='gcc-9'
-alias g++9='g++-9'
+alias gcc='gcc-14'
+alias g++='g++-14 -Wall -std=c++17'
 
 # python aliases
+alias python3='python3.10'
+alias pip3='pip3.10'
 alias py2='python'
 alias py3='python3'
 
 # set default editor
 export EDITOR=nvim
+
+# golang variables
+export GOPATH=$HOME/go
+export GOROOT="/usr/local/opt/go/libexec"
+export GOBIN=$GOPATH/bin
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+# set up nvm
+export NVM_DIR=~/.nvm
+
+# google cloud 
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+
+nvm() {
+    echo "Loading nvm..."
+    source $(brew --prefix nvm)/nvm.sh
+    nvm "$@"
+}
+
+# set up java version commands
+
+java8() {
+    export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+    echo "Java is now version 8."
+}
+
+java11() {
+    export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+    echo "Java is now version 11."
+}
+
+java14() {
+    export JAVA_HOME=$(/usr/libexec/java_home -v 14)
+    echo "Java is now version 14."
+}
+
+# opam configuration
+[[ ! -r /Users/aaryan/.opam/opam-init/init.zsh ]] || source /Users/aaryan/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
+
+# deletes non-tex files
+# prints them all for confirmation
+clean_tex() {
+    echo "This command will delete:"
+    find . -type f -not -name '*.tex' -o -not -name '*.sty' -o -not -name '*.png'
+    if read -q "?continue? "; then
+        find . -type f -not -name '*.tex' -o -not -name '*.sty' -o -not -name '*.png' -delete
+    fi
+}
+
+# sketch
+export PATH="$PATH:/Users/aaryan/Projects/research/sketch-1.7.5/sketch-frontend"
+export SKETCH_HOME="/Users/aaryan/Projects/research/sketch-1.7.5/sketch-frontend/runtime"
+
+# research
+export PATH="$PATH:/Users/aaryan/Projects/research/"
+
+# increase history size
+export SAVEHIST=1000000000
+setopt EXTENDED_HISTORY
+
+mvosu() {
+    mv ~/Downloads/*.osz /Applications/osu\!.app/drive_c/osu\!/Songs/
+}
+
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+run() {
+    ok=1
+    if [[ ! -f $1 || $1 -ot $1.cpp ]]; then
+        clang++ $1.cpp -O2 -o $1 -Wall -std=c++17 -Wextra -Wshadow -fsanitize=undefined,address|| ok=0
+    fi
+    [[ $ok -eq 1 ]] && ./$1
+}
+
+# alias ld=mold
+# export PATH=/Users/aaryan/bin:$PATH
+
+alias emacs='emacs -nw'
+
+# pyenv
+export PATH="$(pyenv root)/shims:$PATH"
