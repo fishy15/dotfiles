@@ -1,17 +1,3 @@
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set autoindent
-set cindent cino=j1,(0,ws,Ws
-
-set number
-set relativenumber
-
-set updatetime=100
-
-" enable using the mouse
-set mouse=a
-
 " folding set up (for cpp)
 autocmd BufRead *.cpp exe 'set foldmethod=indent'
 autocmd BufRead *.cpp exe 'set foldlevel=0'
@@ -57,6 +43,7 @@ Plug 'w0rp/ale'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'lervag/vimtex'
 Plug 'Fildo7525/pretty_hover'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 set termguicolors
