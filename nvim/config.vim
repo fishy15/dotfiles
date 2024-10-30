@@ -44,6 +44,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'lervag/vimtex'
 Plug 'Fildo7525/pretty_hover'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'benknoble/vim-racket'
 call plug#end()
 
 set termguicolors
