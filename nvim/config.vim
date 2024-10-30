@@ -65,9 +65,3 @@ let g:ale_cpp_cc_options = '-O2 -Wall -std=c++17'
 let g:vimtex_view_method='skim'
 let g:vimtex_quickfix_mode=0
 
-autocmd BufEnter *.tex set conceallevel=2
-autocmd BufEnter *.tex set concealcursor
-autocmd BufEnter *.tex highlight Conceal ctermfg=white ctermbg=none
-
-hi clear Conceal
-highlight Conceal ctermfg=white ctermbg=none
