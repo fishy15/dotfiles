@@ -37,7 +37,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
-Plug 'yggdroot/indentline'
+" Plug 'yggdroot/indentline'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'mattn/emmet-vim'
 Plug 'w0rp/ale'
 Plug 'NLKNguyen/papercolor-theme'
@@ -56,13 +57,17 @@ let g:airline_theme='papercolor'
 let g:airline_powerline_fonts=1
 
 let g:gitgutter_enabled=1
-let g:indentLine_char='┆'
 
 let g:ale_linters = {'cpp': ['g++']}
 let g:ale_cpp_cc_executable = 'g++'
 let g:ale_cpp_cc_options = '-O2 -Wall -std=c++17'
 
-let g:tex_flavor='latex'
 let g:vimtex_view_method='skim'
 let g:vimtex_quickfix_mode=0
-let g:tex_conceal=''
+
+autocmd BufEnter *.tex set conceallevel=2
+autocmd BufEnter *.tex set concealcursor
+autocmd BufEnter *.tex highlight Conceal ctermfg=white ctermbg=none
+
+hi clear Conceal
+highlight Conceal ctermfg=white ctermbg=none
