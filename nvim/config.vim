@@ -37,23 +37,22 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
-" Plug 'yggdroot/indentline'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'mattn/emmet-vim'
 Plug 'w0rp/ale'
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'lervag/vimtex'
 Plug 'Fildo7525/pretty_hover'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'benknoble/vim-racket'
 call plug#end()
 
-set termguicolors
-colorscheme PaperColor
+"set termguicolors
+"colorscheme PaperColor
 
 let g:airline#extensions#whitespace#checks = ['indent', 'long', 'mixed-indent-file', 'conflicts' ]
 let g:airline_solarized_bg='dark'
-let g:airline_theme='papercolor'
+" let g:airline_theme='papercolor'
 let g:airline_powerline_fonts=1
 
 let g:gitgutter_enabled=1
@@ -64,4 +63,3 @@ let g:ale_cpp_cc_options = '-O2 -Wall -std=c++17'
 
 let g:vimtex_view_method='skim'
 let g:vimtex_quickfix_mode=0
-

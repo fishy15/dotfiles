@@ -10,10 +10,13 @@ vim.opt.cinoptions = "j1,(0,ws,Ws"
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.opt.updatetime = 100
+-- vim.opt.updatetime = 100
 
 -- enable using mouse
 vim.opt.mouse = "a"
+
+vim.opt.background = "dark"
+vim.cmd.colorscheme "catppuccin"
 
 -- get c/c++ specific config settings
 require('cpp')
