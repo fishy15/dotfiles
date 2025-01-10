@@ -52,7 +52,7 @@ call plug#end()
 
 let g:airline#extensions#whitespace#checks = ['indent', 'long', 'mixed-indent-file', 'conflicts' ]
 let g:airline_solarized_bg='dark'
-" let g:airline_theme='papercolor'
+let g:airline_theme='catppuccin'
 let g:airline_powerline_fonts=1
 
 let g:gitgutter_enabled=1
