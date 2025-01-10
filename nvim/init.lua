@@ -10,6 +10,8 @@ vim.opt.cinoptions = "j1,(0,ws,Ws"
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.opt.cursorline = true
+
 -- vim.opt.updatetime = 100
 
 -- enable using mouse
@@ -35,7 +37,14 @@ require('catppuccin').setup {
     default_integrations = true,
     integrations = {
         gitgutter = true,
-    }
+    },
+    custom_highlights = function(colors)
+        return {
+            CursorLine = {
+                bg = colors.mantle,
+            }
+        }
+    end
 }
 
 require('lualine').setup {
