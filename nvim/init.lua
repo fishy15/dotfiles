@@ -15,11 +15,10 @@ vim.opt.relativenumber = true
 -- enable using mouse
 vim.opt.mouse = "a"
 
-vim.opt.background = "dark"
-vim.cmd.colorscheme "catppuccin"
-
 -- get c/c++ specific config settings
 require('cpp')
+
+-- indentation setup
 require('ibl').setup {
     indent = { char = "┆" },
 }
@@ -29,3 +28,14 @@ hooks.register(
     hooks.type.WHITESPACE,
     hooks.builtin.hide_first_space_indent_level
 )
+
+-- colorscheme setup
+require('catppuccin').setup {
+    default_integrations = true,
+    integrations = {
+        gitgutter = true,
+    }
+}
+
+vim.cmd.colorscheme "catppuccin"
+
