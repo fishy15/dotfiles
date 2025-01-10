@@ -37,5 +37,19 @@ require('catppuccin').setup {
     }
 }
 
+require('lualine').setup {
+    options = {
+        theme = 'catppuccin',
+    },
+    sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_c = {'filename'},
+        lualine_x = {'encoding', {'fileformat', icons_enabled = false}, 'filetype'},
+        lualine_y = {'searchcount', 'progress'},
+        lualine_z = {'location'},
+    },
+}
+
 vim.cmd.colorscheme "catppuccin"
 

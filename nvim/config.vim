@@ -33,8 +33,7 @@ nnoremap L gt
 " Plugin stuff
 call plug#begin()
 Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -46,14 +45,6 @@ Plug 'Fildo7525/pretty_hover'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'benknoble/vim-racket'
 call plug#end()
-
-"set termguicolors
-"colorscheme PaperColor
-
-let g:airline#extensions#whitespace#checks = ['indent', 'long', 'mixed-indent-file', 'conflicts' ]
-let g:airline_solarized_bg='dark'
-let g:airline_theme='catppuccin'
-let g:airline_powerline_fonts=1
 
 let g:gitgutter_enabled=1
 
