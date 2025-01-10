@@ -27,9 +27,6 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap H gT
 nnoremap L gt
 
-" " en markdown files while editing them
-" aucmd BufEnter *.md exe 'noremap <F9> :w<enter>:!open -na "/Applications/Google Chrome.app" --args --new-window %:p<CR> <CR>'
-
 " Plugin stuff
 call plug#begin()
 Plug 'scrooloose/nerdtree'
