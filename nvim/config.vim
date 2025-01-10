@@ -45,12 +45,3 @@ Plug 'Fildo7525/pretty_hover'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'benknoble/vim-racket'
 call plug#end()
-
-let g:gitgutter_enabled=1
-
-let g:ale_linters = {'cpp': ['g++']}
-let g:ale_cpp_cc_executable = 'g++'
-let g:ale_cpp_cc_options = '-O2 -Wall -std=c++17'
-
-let g:vimtex_view_method='skim'
-let g:vimtex_quickfix_mode=0

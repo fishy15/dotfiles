@@ -53,3 +53,13 @@ require('lualine').setup {
 
 vim.cmd.colorscheme "catppuccin"
 
+vim.g.gitgutter_enabled = true
+
+vim.g.ale_linters = {
+    cpp = {'g++'},
+}
+vim.g.ale_cpp_cc_executable = 'g++'
+vim.g.ale_cpp_cc_options = '-O2 -Wall -std=c++20'
+
+vim.g.vimtex_view_method = 'skim'
+vim.g.vimtex_quickfix_mode = 0
