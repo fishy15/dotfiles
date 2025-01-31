@@ -9,7 +9,7 @@ export ZSH="/Users/aaryan/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="bullet-train" # set by `omz`
+ZSH_THEME="philips" # set by `omz`
 
 BULLETTRAIN_PROMPT_ORDER=(
     context
