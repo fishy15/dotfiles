@@ -7,3 +7,5 @@ yabai/.yabairc -> ~/.yabairc
 skhd/.skhdrc -> ~/.skhd
 
 zsh/.zshrc -> ~/.zshrc
+
+clangd/config.yml -> ~/Library/Preferences/clangd/config.yaml
