@@ -41,4 +41,7 @@ Plug 'lervag/vimtex'
 Plug 'Fildo7525/pretty_hover'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'benknoble/vim-racket'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
 call plug#end()

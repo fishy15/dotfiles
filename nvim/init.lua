@@ -73,3 +73,21 @@ vim.g.ale_cpp_cc_options = '-O2 -Wall -std=c++20'
 
 vim.g.vimtex_view_method = 'skim'
 vim.g.vimtex_quickfix_mode = 0
+
+-- LSP configuration
+require('mason').setup()
+require('mason-lspconfig').setup {
+    ensure_installed = { 'clangd' },
+}
+require('lspconfig').clangd.setup {
+    capabilities = capabilities,
+        "clangd",
+        "--background-index",
+        -- by default, clang-tidy use -checks=clang-diagnostic-*,clang-analyzer-*
+        -- to add more checks, create .clang-tidy file in the root directory
+        -- and add Checks key, see https://clang.llvm.org/extra/clang-tidy/
+        "--clang-tidy",
+        "--completion-style=bundled",
+        "--cross-file-rename",
+        -- "--header-insertion=never",
+}
