@@ -12,10 +12,12 @@ vim.opt.relativenumber = true
 
 vim.opt.cursorline = true
 
--- vim.opt.updatetime = 100
+vim.g.mapleader = ' '
 
--- enable using mouse
 vim.opt.mouse = "a"
+
+-- buffer navigation
+vim.api.nvim_set_keymap('n', '<leader>l', ':ls<CR>:b<space>', {noremap = true})
 
 -- get c/c++ specific config settings
 require('cpp')
