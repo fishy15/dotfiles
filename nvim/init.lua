@@ -84,6 +84,11 @@ vim.g.coq_settings = {
         pum = {
             y_max_len = 8,
         }
+    },
+    clients = {
+        snippets = {
+            warn = {},
+        }
     }
 }
 
