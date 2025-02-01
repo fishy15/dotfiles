@@ -65,12 +65,6 @@ vim.cmd.colorscheme "catppuccin"
 
 vim.g.gitgutter_enabled = true
 
-vim.g.ale_linters = {
-    cpp = {'g++'},
-}
-vim.g.ale_cpp_cc_executable = 'g++'
-vim.g.ale_cpp_cc_options = '-O2 -Wall -std=c++20'
-
 vim.g.vimtex_view_method = 'skim'
 vim.g.vimtex_quickfix_mode = 0
 
@@ -79,8 +73,25 @@ require('mason').setup()
 require('mason-lspconfig').setup {
     ensure_installed = { 'clangd' },
 }
-require('lspconfig').clangd.setup {
-    capabilities = capabilities,
+
+-- must be before `require('coq')`
+vim.g.coq_settings = {
+    auto_start = true,
+    display = {
+        icons = {
+            mode = 'none',
+        },
+        pum = {
+            y_max_len = 8,
+        }
+    }
+}
+
+local lsp = require('lspconfig')
+local coq = require('coq')
+
+lsp.clangd.setup(
+    coq.lsp_ensure_capabilities {
         "clangd",
         "--background-index",
         -- by default, clang-tidy use -checks=clang-diagnostic-*,clang-analyzer-*
@@ -90,4 +101,14 @@ require('lspconfig').clangd.setup {
         "--completion-style=bundled",
         "--cross-file-rename",
         -- "--header-insertion=never",
+    }
+)
+lsp.basedpyright.setup(
+    coq.lsp_ensure_capabilities {}
+)
+
+-- autoindent
+require('guess-indent').setup {
+    auto_cmd = true,
+    ignore_editorconfig = false,
 }
