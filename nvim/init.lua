@@ -78,7 +78,7 @@ require('mason-lspconfig').setup {
 
 -- must be before `require('coq')`
 vim.g.coq_settings = {
-    auto_start = true,
+    auto_start = 'shut-up',
     display = {
         icons = {
             mode = 'none',
@@ -111,10 +111,36 @@ lsp.clangd.setup(
     }
 )
 lsp.basedpyright.setup(
-    coq.lsp_ensure_capabilities {}
+    coq.lsp_ensure_capabilities {
+        settings = {
+            basedpyright = {
+                analysis = {
+                    typeCheckingMode = "standard",
+                },
+            },
+        },
+    }
 )
 
--- autoindent
+lsp.vtsls.setup(
+    coq.lsp_ensure_capabilities {
+        settings = {
+            typescript = {
+                inlayHints = {
+                    parameterNames = { enabled = "literals" },
+                    parameterTypes = { enabled = true },
+                    variableTypes = { enabled = true },
+                    propertyDeclarationTypes = { enabled = true },
+                    functionLikeReturnTypes = { enabled = true },
+                    enumMemberValues = { enabled = true },
+                },
+            },
+        },
+    }
+)
+
+vim.lsp.inlay_hint.enable(true)
+
 require('guess-indent').setup {
     auto_cmd = true,
     ignore_editorconfig = false,
