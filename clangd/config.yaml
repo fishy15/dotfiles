@@ -1,15 +1,15 @@
 CompileFlags:
   Add:
     # - -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1
-    # - -I/usr/local/Cellar/gcc/14.2.0_1/include/c++/14
-    # - -I/usr/local/Cellar/gcc/14.2.0_1/include/c++/14/x86_64-apple-darwin23/
-    - -I/usr/local/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-apple-darwin23/14/../../../../../../include/c++/14
-    - -I/usr/local/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-apple-darwin23/14/../../../../../../include/c++/14/x86_64-apple-darwin23
-    - -I/usr/local/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-apple-darwin23/14/../../../../../../include/c++/14/backward
-    - -I/usr/local/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-apple-darwin23/14/include
-    - -I/usr/local/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-apple-darwin23/14/include-fixed
-    - -I/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include
-    - -I/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/System/Library/Frameworks
+    # - -I/usr/local/Cellar/gcc/15.1.0/include/c++/15
+    # - -I/usr/local/Cellar/gcc/15.1.0/include/c++/15/x86_64-apple-darwin23/
+    - -I/usr/local/Cellar/gcc/15.1.0/bin/../lib/gcc/current/gcc/x86_64-apple-darwin23/15/../../../../../../include/c++/15
+    - -I/usr/local/Cellar/gcc/15.1.0/bin/../lib/gcc/current/gcc/x86_64-apple-darwin23/15/../../../../../../include/c++/15/x86_64-apple-darwin23
+    - -I/usr/local/Cellar/gcc/15.1.0/bin/../lib/gcc/current/gcc/x86_64-apple-darwin23/15/../../../../../../include/c++/15/backward
+    - -I/usr/local/Cellar/gcc/15.1.0/bin/../lib/gcc/current/gcc/x86_64-apple-darwin23/15/include
+    - -I/usr/local/Cellar/gcc/15.1.0/bin/../lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed
+    - -I/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include
+    - -I/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/System/Library/Frameworks
 
 Diagnostics:
   UnusedIncludes: None
