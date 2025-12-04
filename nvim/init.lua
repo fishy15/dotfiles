@@ -94,10 +94,10 @@ vim.g.coq_settings = {
     }
 }
 
-local lsp = require('lspconfig')
+local lsp = vim.lsp.config
 local coq = require('coq')
 
-lsp.clangd.setup(
+vim.lsp.config('clangd', {
     coq.lsp_ensure_capabilities {
         "clangd",
         "--background-index",
@@ -109,8 +109,9 @@ lsp.clangd.setup(
         "--cross-file-rename",
         -- "--header-insertion=never",
     }
-)
-lsp.basedpyright.setup(
+})
+
+vim.lsp.config('basedpyright', {
     coq.lsp_ensure_capabilities {
         settings = {
             basedpyright = {
@@ -120,9 +121,9 @@ lsp.basedpyright.setup(
             },
         },
     }
-)
+})
 
-lsp.vtsls.setup(
+vim.lsp.config('vtsls', {
     coq.lsp_ensure_capabilities {
         settings = {
             typescript = {
@@ -137,15 +138,15 @@ lsp.vtsls.setup(
             },
         },
     }
-)
+})
 
-lsp.rust_analyzer.setup(
+vim.lsp.config('rust_analyzer', {
     coq.lsp_ensure_capabilities {
 
     }
-)
+})
 
-lsp.ocamllsp.setup(
+vim.lsp.config('ocamllsp', {
     coq.lsp_ensure_capabilities {
         cmd = { 'ocamllsp' },
         filetypes = { 
@@ -163,7 +164,7 @@ lsp.ocamllsp.setup(
         },
         settings = {},
     }
-)
+})
 
 vim.lsp.inlay_hint.enable(true)
 
