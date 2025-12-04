@@ -142,8 +142,8 @@ PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin
 PATH=$PATH:/Users/aaryan/Library/Python/3.10/bin
 
 # make C and C++ compiler gcc and g++
-alias gcc='gcc-14'
-alias g++='g++-14 -Wall -std=c++17'
+alias gcc='gcc-15'
+alias g++='g++-15 -Wall -std=c++17'
 
 # python aliases
 alias python3='python3.10'

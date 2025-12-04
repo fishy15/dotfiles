@@ -5,4 +5,4 @@ yabai -m config bottom_padding 25
 yabai -m config left_padding 25
 yabai -m config right_padding 25
 yabai -m config window_gap 25
-# yabai -m config external_bar all:25:0
+yabai -m config external_bar all:25:0

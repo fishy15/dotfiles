@@ -139,6 +139,32 @@ lsp.vtsls.setup(
     }
 )
 
+lsp.rust_analyzer.setup(
+    coq.lsp_ensure_capabilities {
+
+    }
+)
+
+lsp.ocamllsp.setup(
+    coq.lsp_ensure_capabilities {
+        cmd = { 'ocamllsp' },
+        filetypes = { 
+            'ocaml',
+            'ocaml.interface',
+            'ocaml.menhir',
+            'ocaml.ocamllex',
+            'dune',
+            'reason'
+        },
+        root_markers = {
+            { 'dune-project', 'dune-workspace' },
+            { "*.opam", "esy.json", "package.json" },
+            '.git'
+        },
+        settings = {},
+    }
+)
+
 vim.lsp.inlay_hint.enable(true)
 
 require('guess-indent').setup {
