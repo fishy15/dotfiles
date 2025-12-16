@@ -149,6 +149,7 @@ vim.lsp.config('rust_analyzer', {
 vim.lsp.config('ocamllsp', {
     coq.lsp_ensure_capabilities {
         cmd = { 'ocamllsp' },
+        autostart = true,
         filetypes = { 
             'ocaml',
             'ocaml.interface',
@@ -172,3 +173,8 @@ require('guess-indent').setup {
     auto_cmd = true,
     ignore_editorconfig = false,
 }
+
+vim.diagnostic.enable = true
+vim.diagnostic.config({
+    virtual_text = true,
+})
