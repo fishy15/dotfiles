@@ -97,8 +97,8 @@ vim.g.coq_settings = {
 local lsp = vim.lsp.config
 local coq = require('coq')
 
-vim.lsp.config('clangd', {
-    coq.lsp_ensure_capabilities {
+local configs = {
+    ["clangd"] = {
         "clangd",
         "--background-index",
         -- by default, clang-tidy use -checks=clang-diagnostic-*,clang-analyzer-*
@@ -108,46 +108,8 @@ vim.lsp.config('clangd', {
         "--completion-style=bundled",
         "--cross-file-rename",
         -- "--header-insertion=never",
-    }
-})
-
-vim.lsp.config('basedpyright', {
-    coq.lsp_ensure_capabilities {
-        settings = {
-            basedpyright = {
-                analysis = {
-                    typeCheckingMode = "standard",
-                },
-            },
-        },
-    }
-})
-
-vim.lsp.config('vtsls', {
-    coq.lsp_ensure_capabilities {
-        settings = {
-            typescript = {
-                inlayHints = {
-                    parameterNames = { enabled = "literals" },
-                    parameterTypes = { enabled = true },
-                    variableTypes = { enabled = true },
-                    propertyDeclarationTypes = { enabled = true },
-                    functionLikeReturnTypes = { enabled = true },
-                    enumMemberValues = { enabled = true },
-                },
-            },
-        },
-    }
-})
-
-vim.lsp.config('rust_analyzer', {
-    coq.lsp_ensure_capabilities {
-
-    }
-})
-
-vim.lsp.config('ocamllsp', {
-    coq.lsp_ensure_capabilities {
+    },
+    ["ocamllsp"] = {
         cmd = { 'ocamllsp' },
         autostart = true,
         filetypes = { 
@@ -164,8 +126,37 @@ vim.lsp.config('ocamllsp', {
             '.git'
         },
         settings = {},
-    }
-})
+    },
+    ["basedpyright"] = {
+        settings = {
+            basedpyright = {
+                analysis = {
+                    typeCheckingMode = "standard",
+                },
+            },
+        },
+    },
+    ["vtsls"] = {
+        settings = {
+            typescript = {
+                inlayHints = {
+                    parameterNames = { enabled = "literals" },
+                    parameterTypes = { enabled = true },
+                    variableTypes = { enabled = true },
+                    propertyDeclarationTypes = { enabled = true },
+                    functionLikeReturnTypes = { enabled = true },
+                    enumMemberValues = { enabled = true },
+                },
+            },
+        },
+    },
+    ["rust_analyzer"] = {},
+}
+
+for name, config in pairs(configs) do
+    vim.lsp.config(name, coq.lsp_ensure_capabilities { config })
+    vim.lsp.enable(name)
+end
 
 vim.lsp.inlay_hint.enable(true)
 
