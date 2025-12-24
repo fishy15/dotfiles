@@ -84,6 +84,7 @@ vim.g.coq_settings = {
             mode = 'none',
         },
         pum = {
+            fast_close = false,
             y_max_len = 8,
         }
     },
@@ -191,7 +192,14 @@ require("copilot").setup({
         cpp = false,
     },
     suggestion = {
-        enabled = false,
+        enabled = true,
+        auto_trigger = true,
+        hide_during_completion = false,
+        keymap = {
+            accept = "<C-k>",
+            prev = "<C-h>",
+            next = "<C-j>",
+        },
     },
 })
 
