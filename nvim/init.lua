@@ -183,3 +183,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
         })
     end
 })
+
+-- copilot setup
+require("copilot").setup({
+    copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v22.13.0/bin/node",
+    filetypes = {
+        cpp = false,
+    },
+    suggestion = {
+        enabled = false,
+    },
+})
+
+vim.api.nvim_set_keymap('n', '<C-y>', ':Copilot panel<CR>', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-y>', '<esc>:Copilot panel<CR>', {noremap = true})
