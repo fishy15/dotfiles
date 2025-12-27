@@ -174,7 +174,7 @@ vim.diagnostic.config({
 -- based on https://www.mitchellhanberg.com/modern-format-on-save-in-neovim/
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("lsp", { clear = true }),
-    pattern = {"*.ml"},
+    pattern = { "*.ml", "*.rs" },
     callback = function(args)
         vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = args.buf,
