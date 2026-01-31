@@ -100,15 +100,17 @@ local coq = require('coq')
 
 local configs = {
     ["clangd"] = {
-        "clangd",
-        "--background-index",
-        -- by default, clang-tidy use -checks=clang-diagnostic-*,clang-analyzer-*
-        -- to add more checks, create .clang-tidy file in the root directory
-        -- and add Checks key, see https://clang.llvm.org/extra/clang-tidy/
-        "--clang-tidy",
-        "--completion-style=bundled",
-        "--cross-file-rename",
-        -- "--header-insertion=never",
+        cmd = {
+            "clangd",
+            "--background-index",
+            -- by default, clang-tidy use -checks=clang-diagnostic-*,clang-analyzer-*
+            -- to add more checks, create .clang-tidy file in the root directory
+            -- and add Checks key, see https://clang.llvm.org/extra/clang-tidy/
+            "--clang-tidy",
+            "--completion-style=bundled",
+            "--cross-file-rename",
+            -- "--header-insertion=never",
+        },
     },
     ["ocamllsp"] = {
         cmd = { 'ocamllsp' },
@@ -152,10 +154,11 @@ local configs = {
         },
     },
     ["rust_analyzer"] = {},
+    ["coq-lsp"] = {},
 }
 
 for name, config in pairs(configs) do
-    vim.lsp.config(name, coq.lsp_ensure_capabilities { config })
+    vim.lsp.config(name, coq.lsp_ensure_capabilities(config))
     vim.lsp.enable(name)
 end
 
@@ -190,6 +193,7 @@ require("copilot").setup({
     copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v22.13.0/bin/node",
     filetypes = {
         cpp = false,
+        tex = false,
     },
     suggestion = {
         enabled = true,

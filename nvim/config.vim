@@ -46,6 +46,13 @@ let g:vimtex_syntax_conceal = {
 
 set rtp^="/Users/aaryan/.opam/CoverageType/share/ocp-indent/vim"
 
+" configure Coqtail mappings
+function CoqtailHookDefineMappings()
+  nmap <buffer> <C-j> <Plug>RocqNext
+  nmap <buffer> <C-k> <Plug>RocqUndo
+  nma <buffer> <C-l> <Plug>RocqToLine
+endfunction
+
 " Plugin stuff
 call plug#begin()
 Plug 'scrooloose/nerdtree'
@@ -66,4 +73,5 @@ Plug 'ms-jpq/coq_nvim'
 Plug 'NMAC427/guess-indent.nvim'
 Plug 'mrcjkb/haskell-tools.nvim'
 Plug 'zbirenbaum/copilot.lua'
+Plug 'whonore/Coqtail'
 call plug#end()
