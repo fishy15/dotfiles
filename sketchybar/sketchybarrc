@@ -88,7 +88,11 @@ sketchybar --add item clock right \
            --subscribe volume volume_change \
            --add item battery right \
            --set battery update_freq=120 script="$PLUGIN_DIR/power.sh" \
-           --subscribe battery system_woke power_source_change
+           --subscribe battery system_woke power_source_change \
+           --add item memory_util right \
+           --set memory_util update_freq=5 icon= script="$PLUGIN_DIR/memory.sh" \
+           --add item cpu_util right \
+           --set cpu_util update_freq=5 icon= script="$PLUGIN_DIR/cpu.sh"
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
