@@ -26,6 +26,10 @@ alt + shift - o : yabai -m window --resize top:0:40
 alt - p : yabai -m window --resize right:40:0
 alt + shift - p : yabai -m window --resize right:-40:0
 
+# switch displays
+alt - s : yabai -m display --focus next || yabai -m display --focus first
+# alt + shift - s : yabai -m display --focus prev || yabai -m display --focus last
+
 # adjust window sizes
 alt - b : yabai -m space --balance
 alt - f : yabai -m window --toggle zoom-fullscreen
