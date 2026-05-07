@@ -1,0 +1,22 @@
+# antidote setup
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+antidote load
+
+# taken from https://unix.stackexchange.com/questions/621606/zsh-completion-with-up-and-down-arrows#672892
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "$key[Up]" up-line-or-beginning-search
+bindkey "$key[Down]" down-line-or-beginning-search
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+[[ ! -r '/Users/aaryan/.opam/opam-init/init.zsh' ]] || source '/Users/aaryan/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# END opam configuration
+
+export PATH="$PATH:$HOME/.cargo/bin/:$HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin/"
+export EDITOR="nvim"
