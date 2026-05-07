@@ -1,11 +1,8 @@
-# List of symlinks
-
-nvim/init.v -> ~/.config/nvim/init.vim
-
-yabai/.yabairc -> ~/.yabairc
-
-skhd/.skhdrc -> ~/.skhd
-
-zsh/.zshrc -> ~/.zshrc
-
+```
+nvim/ -> ~/.config/nvim/
+yabai/.yabairc -> ~/.config/yabai/yabairc
+skhd/.skhdrc -> ~/.config/skhd/skhdrc
+zsh/zshrc -> ~/.zshrc
+antidote/zsh_plugins.txt -> ~/.zsh_plugins.txt
 clangd/config.yml -> ~/Library/Preferences/clangd/config.yaml
+```
