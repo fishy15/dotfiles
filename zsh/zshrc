@@ -22,3 +22,9 @@ eval "$(zoxide init zsh)"
 
 export PATH="$PATH:$HOME/.cargo/bin/:$HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin/"
 export EDITOR="nvim"
+
+# highlight on tab selection
+zstyle ':completion:*' menu select
+
+# enable shift-tab to go backwards
+bindkey '^[[Z' reverse-menu-complete
