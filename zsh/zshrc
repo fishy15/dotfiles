@@ -28,3 +28,6 @@ zstyle ':completion:*' menu select
 
 # enable shift-tab to go backwards
 bindkey '^[[Z' reverse-menu-complete
+
+# enable starship prompt
+eval "$(starship init zsh)"
