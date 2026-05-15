@@ -17,7 +17,7 @@ eval "$(zoxide init zsh)"
 #   - the correct directories to the PATH
 #   - auto-completion for the opam binary
 # This section can be safely removed at any time if needed.
-[[ ! -r '/Users/aaryan/.opam/opam-init/init.zsh' ]] || source '/Users/aaryan/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+[[ ! -r "$HOME/.opam/opam-init/init.zsh" ]] || source "$HOME/.opam/opam-init/init.zsh" > /dev/null 2> /dev/null
 # END opam configuration
 
 export PATH="$PATH:$HOME/.cargo/bin/:$HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin/"
@@ -28,6 +28,12 @@ zstyle ':completion:*' menu select
 
 # enable shift-tab to go backwards
 bindkey '^[[Z' reverse-menu-complete
+
+# disable colors in the output of some command
+alias decolorize='sed "s/\x1B\[[0-9;]\{1,\}[A-Za-z]//g"'
+
+# put uv tools on path
+export PATH="$HOME/.local/bin:$PATH"
 
 # enable starship prompt
 eval "$(starship init zsh)"
