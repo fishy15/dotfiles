@@ -35,5 +35,12 @@ alias decolorize='sed "s/\x1B\[[0-9;]\{1,\}[A-Za-z]//g"'
 # put uv tools on path
 export PATH="$HOME/.local/bin:$PATH"
 
+# add node to path
+export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
+
+# use forward slash as word separator
+autoload -Uz select-word-style
+select-word-style bash
+
 # enable starship prompt
 eval "$(starship init zsh)"

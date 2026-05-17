@@ -190,7 +190,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- copilot setup
 require("copilot").setup({
-    copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v22.13.0/bin/node",
     filetypes = {
         cpp = false,
         tex = false,
