@@ -78,22 +78,14 @@ require('mason-lspconfig').setup {
 
 -- must be before `require('coq')`
 vim.g.coq_settings = {
-    auto_start = 'shut-up',
     display = {
         icons = {
             mode = 'none',
         },
-        pum = {
-            fast_close = false,
-            y_max_len = 8,
-        }
-    },
-    clients = {
-        snippets = {
-            warn = {},
-        }
     }
 }
+
+vim.o.pumheight = 8
 
 local lsp = vim.lsp.config
 local coq = require('coq')
@@ -155,10 +147,11 @@ local configs = {
     },
     ["rust_analyzer"] = {},
     ["coq-lsp"] = {},
+    ["hls"] = {},
 }
 
 for name, config in pairs(configs) do
-    vim.lsp.config(name, coq.lsp_ensure_capabilities(config))
+    vim.lsp.config(name, config)
     vim.lsp.enable(name)
 end
 
@@ -177,7 +170,7 @@ vim.diagnostic.config({
 -- based on https://www.mitchellhanberg.com/modern-format-on-save-in-neovim/
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("lsp", { clear = true }),
-    pattern = { "*.ml", "*.rs" },
+    pattern = { "*.ml", "*.rs", "*.hs" },
     callback = function(args)
         vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = args.buf,

@@ -38,6 +38,9 @@ export PATH="$HOME/.local/bin:$PATH"
 # add node to path
 export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
 
+# add ghcup binaries to path
+export PATH="$HOME/.ghcup/bin:$PATH"
+
 # use forward slash as word separator
 autoload -Uz select-word-style
 select-word-style bash

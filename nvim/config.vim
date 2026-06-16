@@ -71,7 +71,6 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'ms-jpq/coq_nvim'
 Plug 'NMAC427/guess-indent.nvim'
-Plug 'mrcjkb/haskell-tools.nvim'
 Plug 'zbirenbaum/copilot.lua'
 Plug 'whonore/Coqtail'
 call plug#end()
