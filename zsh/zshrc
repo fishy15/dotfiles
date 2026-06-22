@@ -45,5 +45,8 @@ export PATH="$HOME/.ghcup/bin:$PATH"
 autoload -Uz select-word-style
 select-word-style bash
 
+# color ls output
+alias ls='ls -G'
+
 # enable starship prompt
 eval "$(starship init zsh)"
