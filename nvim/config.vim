@@ -73,4 +73,5 @@ Plug 'ms-jpq/coq_nvim'
 Plug 'NMAC427/guess-indent.nvim'
 Plug 'zbirenbaum/copilot.lua'
 Plug 'whonore/Coqtail'
+Plug 'chomosuke/typst-preview.nvim', {'tag': 'v1.*'}
 call plug#end()

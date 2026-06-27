@@ -148,6 +148,11 @@ local configs = {
     ["rust_analyzer"] = {},
     ["coq-lsp"] = {},
     ["hls"] = {},
+    ["tinymist"] = {
+        cmd = { "tinymist" },
+        filetypes = { "typst" },
+        settings = {},
+    },
 }
 
 for name, config in pairs(configs) do
@@ -170,7 +175,7 @@ vim.diagnostic.config({
 -- based on https://www.mitchellhanberg.com/modern-format-on-save-in-neovim/
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("lsp", { clear = true }),
-    pattern = { "*.ml", "*.rs", "*.hs" },
+    pattern = { "*.ml", "*.rs", "*.hs", "*.typ" },
     callback = function(args)
         vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = args.buf,
