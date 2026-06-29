@@ -191,6 +191,7 @@ require("copilot").setup({
     filetypes = {
         cpp = false,
         tex = false,
+        typ = false,
     },
     suggestion = {
         enabled = true,
@@ -206,3 +207,14 @@ require("copilot").setup({
 
 vim.api.nvim_set_keymap('n', '<C-y>', ':Copilot panel<CR>', {noremap = true})
 vim.api.nvim_set_keymap('i', '<C-y>', '<esc>:Copilot panel<CR>', {noremap = true})
+
+vim.keymap.set({ 'i', 's' }, '<C-h>', function()
+    if vim.snippet.active({ direction = 1 }) then
+        return '<Cmd>lua vim.snippet.jump(1)<CR>'
+    elseif vim.snippet.active() then
+         -- active but at last location, so exit
+        return '<Cmd>lua vim.snippet.stop()<CR>'
+    else
+        return '<C-h>'
+    end
+end, { desc = 'Expand or exit snippet', expr = true })
