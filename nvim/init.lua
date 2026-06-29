@@ -191,7 +191,7 @@ require("copilot").setup({
     filetypes = {
         cpp = false,
         tex = false,
-        typ = false,
+        typst = false,
     },
     suggestion = {
         enabled = true,
